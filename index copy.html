@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Responsible AI Starter Blueprint — A 10-Topic Guide by Ying Zhou | Tech Incubator at Queens College</title>
+ 
+<!-- SEO: Primary meta -->
+<meta name="description" content="A free 10-topic guide to using AI effectively and ethically. Learn prompting, verification, bias, privacy, and ethical use — from Ying Zhou, Executive Director of the Tech Incubator at Queens College (CUNY)." />
+<meta name="keywords" content="Responsible AI, AI literacy, AI ethics, prompting guide, ChatGPT, AI bias, AI privacy, Queens College, Tech Incubator, CUNY, Ying Zhou, generative AI, AI for students, AI for builders" />
+<meta name="author" content="Ying Zhou" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="http://localhost:8000/index.html" />
+ 
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Responsible AI Starter Blueprint — A 10-Topic Guide" />
+<meta property="og:description" content="Your fluff-free guide to using AI effectively and ethically. 10 short topics covering prompting, verification, bias, privacy, and more." />
+<meta property="og:site_name" content="Tech Incubator at Queens College" />
+<meta property="og:locale" content="en_US" />
+ 
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Responsible AI Starter Blueprint — A 10-Topic Guide" />
+<meta name="twitter:description" content="Your fluff-free guide to using AI effectively and ethically. From Ying Zhou, Tech Incubator at Queens College." />
+ 
+<!-- Structured data: Course + BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Responsible AI Starter Blueprint",
+  "description": "A 10-topic guide to using AI effectively and ethically, covering what AI really is, prompting, verification, bias, ethical use, and privacy.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Tech Incubator at Queens College (CUNY)",
+    "sameAs": "https://techincubatorqc.com/"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Ying Zhou",
+    "jobTitle": "Executive Director, Tech Incubator at Queens College"
+  },
+  "educationalLevel": "Beginner",
+  "inLanguage": "en",
+  "learningResourceType": "Self-paced guide",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT2H"
+  }
+}
+</script>
+ 
+<!-- Fonts: Georgia and Calibri are system; fall back to web-safe serifs/sans -->
+<style>
+  :root {
+    --qc-red: #E71939;
+    --qc-red-dark: #b21328;
+    --qc-blue: #6CAEDF;
+    --qc-grey: #999999;
+    --qc-black: #1A1A1A;
+    --qc-dark: #111111;
+    --qc-dark-card: #1E1E1E;
+    --qc-white: #FFFFFF;
+    --qc-off-white: #F5F5F5;
+    --qc-light-grey: #D9D9D9;
+    --qc-body-text: #444444;
+ 
+    --font-title: Georgia, "Times New Roman", serif;
+    --font-body: Calibri, "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+ 
+    --max-width: 880px;
+  }
+ 
+  * { box-sizing: border-box; }
+ 
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+ 
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--qc-body-text);
+    background: var(--qc-white);
+    -webkit-font-smoothing: antialiased;
+  }
+ 
+  /* Top red accent bar (QC brand signature) */
+  .top-bar {
+    height: 6px;
+    background: var(--qc-red);
+  }
+ 
+  /* Sticky header / nav */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--qc-white);
+    border-bottom: 1px solid var(--qc-light-grey);
+    backdrop-filter: saturate(180%) blur(8px);
+  }
+ 
+  .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+ 
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--qc-black);
+  }
+ 
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--qc-red);
+    color: var(--qc-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+ 
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+ 
+  .brand-name {
+    font-family: var(--font-title);
+    font-weight: bold;
+    font-size: 17px;
+    color: var(--qc-black);
+  }
+ 
+  .brand-sub {
+    font-size: 11px;
+    color: var(--qc-red);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+  }
+ 
+  nav.primary {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+ 
+  nav.primary a {
+    color: var(--qc-black);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s ease;
+  }
+ 
+  nav.primary a:hover {
+    border-bottom-color: var(--qc-red);
+    color: var(--qc-red);
+  }
+ 
+  /* Main content container */
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+ 
+  /* Hero */
+  .hero {
+    padding: 64px 0 48px;
+    border-bottom: 2px solid var(--qc-off-white);
+  }
+ 
+  .eyebrow {
+    font-size: 13px;
+    font-weight: bold;
+    color: var(--qc-red);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+ 
+  .hero h1 {
+    font-family: var(--font-title);
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.1;
+    color: var(--qc-black);
+    margin: 0 0 8px;
+    font-weight: bold;
+  }
+ 
+  .hero h1 .accent { color: var(--qc-red); display: block; }
+ 
+  .hero .lede {
+    font-size: 20px;
+    color: var(--qc-black);
+    max-width: 700px;
+    margin: 24px 0 28px;
+    line-height: 1.5;
+  }
+ 
+  .hero .byline {
+    font-size: 15px;
+    color: var(--qc-body-text);
+    font-style: italic;
+  }
+ 
+  .hero .byline strong { color: var(--qc-black); font-style: normal; }
+ 
+  .hero-cta {
+    display: inline-block;
+    background: var(--qc-red);
+    color: var(--qc-white);
+    padding: 14px 26px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 24px;
+    transition: background 0.15s;
+  }
+ 
+  .hero-cta:hover { background: var(--qc-red-dark); }
+ 
+  /* Intro / Why section */
+  .intro {
+    padding: 48px 0;
+  }
+ 
+  .intro h2 {
+    font-family: var(--font-title);
+    font-size: 30px;
+    color: var(--qc-black);
+    margin: 0 0 16px;
+    padding-left: 14px;
+    border-left: 4px solid var(--qc-red);
+  }
+ 
+  .intro p { font-size: 17px; }
+  #about-ying h3 {
+    margin-bottom: 0;
+  }
+
+  #about-ying p {
+    margin-top: 0;
+  }
+ 
+  /* Topic index grid */
+  .topic-index {
+    padding: 48px 0 24px;
+    border-top: 2px solid var(--qc-off-white);
+  }
+ 
+  .topic-index h2 {
+    font-family: var(--font-title);
+    font-size: 30px;
+    color: var(--qc-black);
+    margin: 0 0 8px;
+    padding-left: 14px;
+    border-left: 4px solid var(--qc-red);
+  }
+ 
+  .topic-index .sub {
+    color: var(--qc-grey);
+    margin: 0 0 28px;
+    padding-left: 18px;
+  }
+ 
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+ 
+  @media (max-width: 620px) {
+    .topic-grid { grid-template-columns: 1fr; }
+  }
+ 
+  .topic-card {
+    background: var(--qc-off-white);
+    border-left: 4px solid var(--qc-red);
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--qc-black);
+    transition: background 0.15s, transform 0.15s;
+    display: block;
+  }
+ 
+  .topic-card:hover {
+    background: var(--qc-white);
+    transform: translateX(3px);
+    box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+  }
+ 
+  .topic-card .num {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--qc-red);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+ 
+  .topic-card .title {
+    font-family: var(--font-title);
+    font-size: 19px;
+    font-weight: bold;
+    color: var(--qc-black);
+    line-height: 1.3;
+    margin: 0 0 6px;
+  }
+ 
+  .topic-card .blurb {
+    font-size: 14px;
+    color: var(--qc-body-text);
+    line-height: 1.5;
+  }
+ 
+  /* Topic sections */
+  article.topic {
+    padding: 64px 0 48px;
+    border-top: 2px solid var(--qc-off-white);
+  }
+ 
+  .topic-eyebrow {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--qc-red);
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 12px;
+  }
+ 
+  article.topic h2 {
+    font-family: var(--font-title);
+    font-size: clamp(28px, 4.5vw, 40px);
+    color: var(--qc-black);
+    margin: 0 0 20px;
+    line-height: 1.15;
+    padding-bottom: 14px;
+    border-bottom: 3px solid var(--qc-red);
+  }
+ 
+  article.topic h3 {
+    font-family: var(--font-title);
+    font-size: 24px;
+    color: var(--qc-black);
+    margin: 40px 0 12px;
+    padding-left: 12px;
+    border-left: 4px solid var(--qc-red);
+  }
+ 
+  article.topic h4 {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: var(--qc-red);
+    margin: 28px 0 8px;
+    text-transform: none;
+  }
+ 
+  article.topic p { margin: 12px 0; }
+ 
+  article.topic ul,
+  article.topic ol {
+    padding-left: 22px;
+    margin: 12px 0;
+  }
+ 
+  article.topic li {
+    margin: 6px 0;
+    line-height: 1.6;
+  }
+ 
+  article.topic li::marker { color: var(--qc-red); font-weight: bold; }
+ 
+  article.topic strong {
+    font-weight: 700;
+  }
+ 
+  /* Callout / quote */
+  .callout {
+    background: var(--qc-off-white);
+    border-left: 4px solid var(--qc-red);
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-family: var(--font-title);
+    font-style: italic;
+    font-size: 17px;
+    color: var(--qc-black);
+  }
+ 
+  /* Action box (dark card) */
+  .action-box {
+    background: var(--qc-dark);
+    color: var(--qc-light-grey);
+    padding: 28px 30px;
+    margin: 32px 0;
+    border-radius: 2px;
+  }
+ 
+  .action-box .label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--qc-red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+ 
+  .action-box h4 {
+    font-family: var(--font-title);
+    font-size: 22px;
+    color: var(--qc-white);
+    margin: 0 0 12px;
+    border: none;
+    padding: 0;
+  }
+ 
+  .action-box p { color: var(--qc-light-grey); margin: 10px 0; }
+  .action-box ul { padding-left: 20px; }
+  .action-box li { color: var(--qc-light-grey); }
+  .action-box li::marker { color: var(--qc-red); }
+  .action-box strong { color: var(--qc-white); }
+ 
+  /* Recap box */
+  .recap {
+    background: var(--qc-off-white);
+    border-top: 3px solid var(--qc-red);
+    padding: 22px 26px;
+    margin: 32px 0;
+  }
+ 
+  .recap .label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--qc-red);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+ 
+  .recap ul { margin: 0; padding-left: 20px; }
+  .recap li { color: var(--qc-black); margin: 6px 0; }
+  .recap li::marker { color: var(--qc-red); font-weight: bold; }
+ 
+  /* Next / Prev navigation */
+  .topic-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--qc-light-grey);
+    flex-wrap: wrap;
+  }
+ 
+  .topic-nav a {
+    color: var(--qc-black);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px;
+    border: 1px solid var(--qc-light-grey);
+    border-radius: 2px;
+    transition: border-color 0.15s, color 0.15s;
+    max-width: 48%;
+  }
+ 
+  .topic-nav a:hover {
+    border-color: var(--qc-red);
+    color: var(--qc-red);
+  }
+ 
+  .topic-nav .label {
+    display: block;
+    font-size: 11px;
+    color: var(--qc-grey);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+ 
+  .topic-nav .back-index {
+    margin: 0;
+    border-color: var(--qc-red);
+    color: var(--qc-red);
+  }
+ 
+  /* Footer */
+  footer.site-footer {
+    background: var(--qc-dark);
+    color: var(--qc-light-grey);
+    padding: 48px 24px;
+    margin-top: 64px;
+    border-top: 6px solid var(--qc-red);
+  }
+ 
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+ 
+  footer.site-footer h3 {
+    font-family: var(--font-title);
+    font-size: 22px;
+    color: var(--qc-white);
+    margin: 0 0 8px;
+  }
+ 
+  footer.site-footer p { color: var(--qc-light-grey); line-height: 1.6; }
+  footer.site-footer strong { color: var(--qc-white); }
+ 
+  footer.site-footer .meta {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--qc-dark-card);
+    font-size: 13px;
+    color: var(--qc-grey);
+  }
+ 
+  /* Back to top button */
+  .to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    background: var(--qc-red);
+    color: var(--qc-white);
+    border: none;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 99;
+  }
+ 
+  .to-top.visible { opacity: 1; pointer-events: auto; }
+  .to-top:hover { background: var(--qc-red-dark); }
+ 
+  /* Print styles */
+  @media print {
+    header.site-header, .to-top, .topic-nav, .hero-cta { display: none; }
+    article.topic { page-break-before: always; border-top: none; }
+    body { font-size: 12pt; }
+  }
+</style>
+</head>
+<body>
+ 
+<div class="top-bar" aria-hidden="true"></div>
+ 
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="Responsible AI Starter Blueprint — Home">
+      <span class="brand-mark">AI</span>
+      <span class="brand-text">
+        <span class="brand-name">Responsible AI Blueprint</span>
+        <span class="brand-sub">Tech Incubator · QC</span>
+      </span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#intro">About</a>
+      <a href="#topics">All Topics</a>
+      <a href="#topic-1">Start</a>
+      <a href="#about-ying">About Ying</a>
+    </nav>
+  </div>
+</header>
+ 
+<main id="top">
+ 
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="eyebrow">Queens College · Tech Incubator</div>
+  <h1 id="hero-title">
+    Responsible AI
+    <span class="accent">Starter Blueprint</span>
+  </h1>
+  <p class="lede">A fluff-free, 10-topic guide to using AI effectively and ethically - for builders, students, and lifelong learners ready to move from curiosity to capability.</p>
+  <p class="byline">By <strong>Ying Zhou</strong>, Executive Director, Tech Incubator at Queens College (CUNY), co-created with AI</p>
+  <a class="hero-cta" href="#topics">Browse the 10 topics →</a>
+</section>
+ 
+<!-- INTRO -->
+<section class="intro" id="intro" aria-labelledby="intro-title">
+  <h2 id="intro-title">Why This Blueprint Exists</h2>
+  <p>AI tools are powerful, but using them blindly can lead to misinformation, biased results, and serious privacy risks. This guide changes that.</p>
+  <p>Each topic takes about 10–15 minutes. Together they'll help you understand how AI works, prompt more effectively, spot biased or misleading outputs, protect your privacy, and build real confidence as an informed AI user.</p>
+  <p><strong>How to use this page:</strong> Read the topics in order, or jump to whatever you need. This page is designed as a long-term reference - bookmark it and come back whenever you want to sharpen a skill.</p>
+</section>
+ 
+<!-- TOPIC INDEX -->
+<section class="topic-index" id="topics" aria-labelledby="topics-title">
+  <h2 id="topics-title">The 10 Topics</h2>
+  <p class="sub">Pick any topic. Come back anytime.</p>
+  <div class="topic-grid">
+    <a class="topic-card" href="#topic-1">
+      <div class="num">Topic 01</div>
+      <div class="title">What AI Really Is (and Isn't)</div>
+      <div class="blurb">Cut through the hype. Understand what AI actually does, and what it doesn't.</div>
+    </a>
+    <a class="topic-card" href="#topic-2">
+      <div class="num">Topic 02</div>
+      <div class="title">How AI Predicts What Comes Next</div>
+      <div class="blurb">A plain-English look under the hood at how generative AI actually works.</div>
+    </a>
+    <a class="topic-card" href="#topic-3">
+      <div class="num">Topic 03</div>
+      <div class="title">Why AI Is Smarter With Better Prompts</div>
+      <div class="blurb">Three prompting basics that instantly level up the quality of what you get back.</div>
+    </a>
+    <a class="topic-card" href="#topic-4">
+      <div class="num">Topic 04</div>
+      <div class="title">Advanced Prompting Techniques</div>
+      <div class="blurb">Iteration, chain-of-thought, and task decomposition — the techniques pros rely on.</div>
+    </a>
+    <a class="topic-card" href="#topic-5">
+      <div class="num">Topic 05</div>
+      <div class="title">How to Verify What AI Tells You</div>
+      <div class="blurb">Stop trusting confident-sounding wrong answers. Learn how to fact-check like a pro.</div>
+    </a>
+    <a class="topic-card" href="#topic-6">
+      <div class="num">Topic 06</div>
+      <div class="title">What AI Doesn't Tell You (Unless You Ask)</div>
+      <div class="blurb">How bias shows up in AI outputs - and three concrete ways to surface it.</div>
+    </a>
+    <a class="topic-card" href="#topic-7">
+      <div class="num">Topic 07</div>
+      <div class="title">Just Because AI Can, Doesn't Mean You Should</div>
+      <div class="blurb">Three ethical principles for using AI without eroding trust or doing harm.</div>
+    </a>
+    <a class="topic-card" href="#topic-8">
+      <div class="num">Topic 08</div>
+      <div class="title">Are You Oversharing With AI?</div>
+      <div class="blurb">Practical rules for protecting your privacy (and your organization's) inside AI tools.</div>
+    </a>
+    <a class="topic-card" href="#topic-9">
+      <div class="num">Topic 09</div>
+      <div class="title">Real-World Practice: Prompt, Verify, Check, Protect</div>
+      <div class="blurb">A 5-step walkthrough that brings every skill in this guide together.</div>
+    </a>
+    <a class="topic-card" href="#topic-10">
+      <div class="num">Topic 10</div>
+      <div class="title">Moving Forward - Staying Sharp as AI Evolves</div>
+      <div class="blurb">Three habits that will keep your AI skills sharp for the long run.</div>
+    </a>
+  </div>
+</section>
+ 
+<!-- ================= TOPIC 1 ================= -->
+<article class="topic" id="topic-1" aria-labelledby="topic-1-title">
+  <div class="topic-eyebrow">Topic 01</div>
+  <h2 id="topic-1-title">What AI Really Is (and Isn't)</h2>
+  <p><strong>Today's goal:</strong> Cut through the hype and understand what AI actually is, and what it isn't.</p>
+ 
+  <h3>So, What Is AI Really?</h3>
+  <p>In simple terms:</p>
+  <div class="callout">Artificial Intelligence = computer systems that make decisions or predictions based on data.</div>
+  <p>Not magic. Not sentient robots. Just tools that learn patterns from a lot of data.</p>
+  <p>The AI you're interacting with today, like ChatGPT or this kind of assistant, is <strong>narrow AI</strong>: very good at specific tasks like writing, translating, or summarizing.</p>
+ 
+  <h3>What AI Is Not</h3>
+  <ul>
+    <li>It doesn't "think."</li>
+    <li>It doesn't "understand" context the way humans do.</li>
+    <li>It doesn't have feelings, intent, or common sense.</li>
+  </ul>
+  <p>If it gives you a great answer, it's pattern-matching. If it gives you a bad answer? Same thing. It <em>looks</em> confident, but confidence does not equal correctness.</p>
+ 
+  <h3>Where You're Already Using AI</h3>
+  <ul>
+    <li>Email spam filters.</li>
+    <li>Netflix or YouTube recommendations.</li>
+    <li>Google search ranking.</li>
+    <li>Face unlock on your phone.</li>
+    <li>Voice assistants (Alexa, Siri, and friends).</li>
+  </ul>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Observe AI in your life.</h4>
+    <p>Make a quick list of 3 places where AI is quietly working behind the scenes today. You'll be surprised how many you use daily.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>AI is pattern-matching, not magic.</li>
+      <li>Narrow AI ≠ human-level intelligence.</li>
+      <li>You're already using it, knowingly or not.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topics" class="back-index"><span class="label">Index</span>All Topics</a>
+    <a href="#topic-2"><span class="label">Next →</span>How AI Predicts What Comes Next</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 2 ================= -->
+<article class="topic" id="topic-2" aria-labelledby="topic-2-title">
+  <div class="topic-eyebrow">Topic 02</div>
+  <h2 id="topic-2-title">Under the Hood - How AI Predicts What Comes Next</h2>
+  <p>Yesterday you learned what AI <em>is</em>. Today, let's go one level deeper into how <strong>generative AI</strong> (like ChatGPT) actually works, factually, not just conceptually.</p>
+ 
+  <h3>What Is Generative AI?</h3>
+  <p>Generative AI is a type of artificial intelligence designed to <strong>create</strong> new content - text, images, code, even audio or video, based on patterns it learned from massive datasets.</p>
+  <p><strong>ChatGPT is primarily a language model</strong>, built to generate human-like text. Connected with tools like DALL·E, it can also generate images. Some platforms support code-based animations or video workflows through plugins and APIs.</p>
+  <p>Still, at the core of it all is <strong>text-based prediction</strong>.</p>
+ 
+  <h3>How It Actually Works (In Plain English)</h3>
+  <p>Generative AI uses <strong>probability</strong> to predict what word (or token) should come next in a sentence. Imagine typing:</p>
+  <div class="callout">The capital of France is…</div>
+  <p>The model doesn't "know" the answer. It <strong>calculates</strong> what's most likely to come next based on all the data it has seen.</p>
+  <ul>
+    <li>"Paris" = <strong>87%</strong> likely</li>
+    <li>"Berlin" = <strong>5%</strong> likely</li>
+    <li>"Croissant" = <strong>0.2%</strong> likely, and so on.</li>
+  </ul>
+  <p>It picks the most likely next token, <strong>Paris</strong>, and repeats the process hundreds of times, one token at a time, to build a complete response.</p>
+  <p>It's <strong>pattern recognition</strong>, not comprehension.</p>
+ 
+  <h3>Real-World Analogy</h3>
+  <div class="callout">Think of it like a supercharged autocomplete. It doesn't understand meaning the way humans do. It's just seen so much data that it can predict what sounds right with impressive fluency.</div>
+ 
+  <h3>Why This Matters</h3>
+  <ul>
+    <li>It doesn't "know" what's <em>true</em>, only what's <em>likely</em>.</li>
+    <li>It can sound confident and still be completely wrong.</li>
+    <li>It may leave out sources unless you <strong>ask for them directly</strong>.</li>
+  </ul>
+  <p>That's why <strong>fact-checking and smart prompting</strong> are essential.</p>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Test it yourself.</h4>
+    <p>Ask ChatGPT (or any AI you use): "Who won the Nobel Peace Prize in 2023?" Then follow up with: "Can you cite your sources?" and "How do you know this?"</p>
+    <p>This quick test shows you how AI responds when pushed for accuracy and sourcing.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Generative AI creates content by predicting what comes next.</li>
+      <li>ChatGPT is a language model with text-based DNA.</li>
+      <li>With the right tools, it can also generate images or code-based visuals.</li>
+      <li>Accuracy isn't guaranteed - it's predicting, not reasoning.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-1"><span class="label">← Previous</span>What AI Really Is</a>
+    <a href="#topic-3"><span class="label">Next →</span>Prompting Basics</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 3 ================= -->
+<article class="topic" id="topic-3" aria-labelledby="topic-3-title">
+  <div class="topic-eyebrow">Topic 03</div>
+  <h2 id="topic-3-title">Why AI Is Smarter With Better Prompts</h2>
+  <p>Now that you understand how AI works, it's time to start steering it intentionally. Today you'll learn the basics of <strong>effective prompting</strong> - so you can get reliable, relevant, and useful answers from tools like ChatGPT.</p>
+ 
+  <h3>Think of AI as a Very Smart Intern</h3>
+  <p>Fast, capable, surprisingly articulate, but only <strong>if you give it detailed, specific instructions</strong>. Otherwise?</p>
+  <ul>
+    <li>It doesn't ask clarifying questions unless you tell it to.</li>
+    <li>It doesn't know your goals unless you provide context and intention.</li>
+    <li>It may give you incorrect answers with confidence (this is called a <strong>hallucination</strong>), unless you challenge it or ask for sources.</li>
+  </ul>
+ 
+  <h3>3 Prompting Basics That Make a Big Difference</h3>
+ 
+  <h4>1. Be Specific</h4>
+  <p>Instead of:</p>
+  <div class="callout">Explain business risk.</div>
+  <p>Try:</p>
+  <div class="callout">Act as a business professor. Explain the top 3 types of business risk (financial, operational, strategic) in 3 short paragraphs, written at a graduate level. Include one real-world example.</div>
+  <p>More detail = more useful answers.</p>
+ 
+  <h4>2. Give It a Role</h4>
+  <p>This changes how the AI "thinks." Instead of:</p>
+  <div class="callout">Write a business plan.</div>
+  <p>Try:</p>
+  <div class="callout">Act as a startup advisor. Write a simple 1-page business plan for a coffee shop in a college town.</div>
+  <p>Roles = better tone, structure, and assumptions.</p>
+ 
+  <h4>3. Define the Format</h4>
+  <p>Want a checklist? Summary? Table? Email? Say so directly.</p>
+  <div class="callout">List 5 pros and cons in bullet points.  •  Respond in table format with 3 columns: Risk Type | Description | Example.</div>
+  <p>The more you shape the output, the better it performs.</p>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Rewrite a prompt, and see the difference.</h4>
+    <p>Pick a general topic you care about. Write a basic prompt, then rewrite it using a specific role, clear context, and defined format. Compare the outputs side-by-side.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Specificity beats vagueness every time.</li>
+      <li>Roles shape tone, structure, and assumptions.</li>
+      <li>Format instructions give you control over output.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-2"><span class="label">← Previous</span>How AI Predicts</a>
+    <a href="#topic-4"><span class="label">Next →</span>Advanced Prompting</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 4 ================= -->
+<article class="topic" id="topic-4" aria-labelledby="topic-4-title">
+  <div class="topic-eyebrow">Topic 04</div>
+  <h2 id="topic-4-title">3 Advanced Prompting Techniques That Unlock Better AI Output</h2>
+  <p>By now, you've seen how <strong>specific, role-based, and structured prompts</strong> make a big difference. Today, we go further: advanced prompting techniques that help you get clearer, more accurate, and more consistent results.</p>
+ 
+  <h3>3 Power-User Prompting Techniques</h3>
+ 
+  <h4>1. Iterate and Refine</h4>
+  <p>The first response is rarely the best. AI improves when you treat it like a <strong>collaborator</strong>, not a vending machine.</p>
+  <div class="callout">Rewrite this more concisely.  •  Now add 3 examples.  •  Can you make this more persuasive?  •  Cite your sources.  •  What would a critic say about this?</div>
+  <p>Small nudges = big improvements.</p>
+ 
+  <h4>2. Use Chain-of-Thought Reasoning</h4>
+  <p>AI performs better when you <strong>ask it to reason step by step</strong>. Instead of:</p>
+  <div class="callout">Should I lease or buy a car?</div>
+  <p>Try:</p>
+  <div class="callout">List the pros and cons of leasing vs. buying a car, based on financial cost, maintenance, flexibility, and resale value. Then summarize with a recommendation based on each scenario.</div>
+  <p>More thought = more trustable answers.</p>
+ 
+  <h4>3. Break Big Tasks Into Smaller Ones</h4>
+  <p>Instead of one mega-prompt, <strong>build the response in steps</strong>:</p>
+  <ul>
+    <li><strong>Prompt 1:</strong> Act as a hiring manager. What skills should I look for in a data analyst?</li>
+    <li><strong>Prompt 2:</strong> Now write 3 interview questions to test for each of those skills.</li>
+    <li><strong>Prompt 3:</strong> Format this as a 1-page hiring guide.</li>
+  </ul>
+  <p>This gives you way more control, and way better results.</p>
+ 
+  <h3>Bonus: Ask AI How to Prompt It</h3>
+  <div class="callout">How can I prompt you more effectively for [insert your topic]?</div>
+  <p>You'll be surprised how meta, and how helpful it gets.</p>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Guide the AI. Don't accept the first guess.</h4>
+    <p>Pick something you want help with. Start with a structured prompt, follow up with at least 2 refinements, and optionally use chain-of-thought or break it into steps. That's how pro users get real value.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Iteration turns okay answers into great ones.</li>
+      <li>Chain-of-thought unlocks reasoning.</li>
+      <li>Breaking down big asks = sharper results.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-3"><span class="label">← Previous</span>Prompting Basics</a>
+    <a href="#topic-5"><span class="label">Next →</span>Verification</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 5 ================= -->
+<article class="topic" id="topic-5" aria-labelledby="topic-5-title">
+  <div class="topic-eyebrow">Topic 05</div>
+  <h2 id="topic-5-title">How to Verify What AI Tells You</h2>
+  <p>Now that you know how to write solid prompts, let's tackle something just as important:</p>
+  <div class="callout">How do you know if what the AI tells you is actually true?</div>
+ 
+  <h3>Reminder: AI Doesn't "Know" - It Predicts</h3>
+  <p>AI doesn't retrieve information from a database of facts. It <strong>predicts the next word</strong> based on patterns it learned from massive amounts of data. That means:</p>
+  <ul>
+    <li>It can be outdated.</li>
+    <li>It can misrepresent things.</li>
+    <li>It can sound 100% confident while being 100% wrong.</li>
+  </ul>
+  <p>This is called a <strong>hallucination</strong> - when AI makes something up but presents it as fact.</p>
+ 
+  <h3>3 Ways to Verify AI Output</h3>
+ 
+  <h4>1. Ask for Sources (Directly)</h4>
+  <p>AI models won't cite sources by default, but you can ask.</p>
+  <div class="callout">Can you cite reputable sources for that?  •  Where did this information come from?  •  Link to a study or article supporting that claim.</div>
+  <p>Even then, don't assume accuracy. Always double-check the source links.</p>
+ 
+  <h4>2. Cross-Check With External Tools</h4>
+  <ul>
+    <li><strong>Google or Wikipedia</strong> for quick fact-checks.</li>
+    <li><strong>Google Scholar or PubMed</strong> for academic topics.</li>
+    <li><strong>News sites or government domains</strong> (.gov, .org) for policy or current events.</li>
+  </ul>
+  <p>If AI gives you a stat, <strong>Google that stat</strong>. If it gives you a law, <strong>check the legal source</strong>.</p>
+ 
+  <h4>3. Spot "Too Good to Be True" Responses</h4>
+  <ul>
+    <li>Fake quotes or made-up citations.</li>
+    <li>Impossibly recent events (AI knowledge may be outdated).</li>
+    <li>Overly polished summaries of complex or controversial topics.</li>
+  </ul>
+  <p>When in doubt: slow down, dig deeper, and verify.</p>
+ 
+  <h3>Bonus: Use AI to Help You Fact-Check</h3>
+  <div class="callout">Summarize this peer-reviewed article: [paste text or link].  •  What are arguments against this claim?  •  Where might this information be biased?</div>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Verify a recent AI response.</h4>
+    <p>Take a recent AI response and put it through the verification steps: ask for the source, look it up, and see if anything was off or oversimplified. This is a critical habit of responsible AI use.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>AI predicts - so verify.</li>
+      <li>Ask for sources; don't assume accuracy.</li>
+      <li>Cross-check with trusted external tools.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-4"><span class="label">← Previous</span>Advanced Prompting</a>
+    <a href="#topic-6"><span class="label">Next →</span>Bias</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 6 ================= -->
+<article class="topic" id="topic-6" aria-labelledby="topic-6-title">
+  <div class="topic-eyebrow">Topic 06</div>
+  <h2 id="topic-6-title">What AI Doesn't Tell You (Unless You Ask)</h2>
+  <p>Today we go one step deeper - into something many people don't think about until it's too late: <strong>bias</strong>.</p>
+  <p>AI isn't neutral. Unless you learn to detect bias in its outputs, you could unintentionally reinforce it, or make decisions based on distorted information.</p>
+ 
+  <h3>Why AI Can Be Biased</h3>
+  <p>AI models are trained on <strong>human-generated data</strong>: books, websites, articles, forums, and more. And <strong>human data is full of bias</strong> - cultural, political, racial, gendered, economic. Even if the model isn't trying to be biased, it learns from biased patterns and may repeat them.</p>
+ 
+  <h3>Common Biases in AI Responses</h3>
+  <ul>
+    <li><strong>Cultural bias:</strong> over-representing Western perspectives.</li>
+    <li><strong>Gender bias:</strong> reinforcing stereotypes (e.g., "nurses are women").</li>
+    <li><strong>Racial bias:</strong> associating certain ethnicities with negative traits.</li>
+    <li><strong>Confirmation bias:</strong> echoing dominant opinions without presenting alternatives.</li>
+    <li><strong>Language bias:</strong> misunderstanding non-standard dialects or multilingual input.</li>
+  </ul>
+ 
+  <h3>3 Ways to Spot (and Handle) Bias in AI</h3>
+ 
+  <h4>1. Ask: "What perspective is this based on?"</h4>
+  <div class="callout">Is this response influenced by Western cultural norms?  •  Would this answer be different in another region or culture?</div>
+ 
+  <h4>2. Ask for Counterarguments or Alternative Views</h4>
+  <div class="callout">What are the opposing views on this topic?  •  How might someone from a different background respond?</div>
+ 
+  <h4>3. Use Context-Specific Prompting</h4>
+  <div class="callout">How would this topic be explained differently in Western vs. Eastern cultures?  •  Compare this practice in the U.S., Latin America, and East Asia.  •  Use neutral, respectful language across race, gender, and age.  •  Explain this policy with potential ethical concerns included.</div>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Re-read through a bias lens.</h4>
+    <p>Pick any AI response and re-read it through a bias lens. Ask: What's missing? What's assumed? Who might disagree? Then re-prompt to explore another angle. This habit makes you a critically aware AI user.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>AI learns from human data, and inherits human bias.</li>
+      <li>Ask about perspective, assumptions, and counterviews.</li>
+      <li>Context-specific prompts = better inclusivity.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-5"><span class="label">← Previous</span>Verification</a>
+    <a href="#topic-7"><span class="label">Next →</span>Ethical Use</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 7 ================= -->
+<article class="topic" id="topic-7" aria-labelledby="topic-7-title">
+  <div class="topic-eyebrow">Topic 07</div>
+  <h2 id="topic-7-title">Just Because AI Can, Doesn't Mean You Should</h2>
+  <p>So far, you've learned how to prompt well, verify responses, and detect bias. Now it's time to explore something more foundational: <strong>ethical use</strong>. AI isn't just a tool, it's a tool with real-world consequences.</p>
+ 
+  <h3>Ethical Risks of Using AI Irresponsibly</h3>
+  <p>Here are common ways ethical boundaries can be crossed, even unintentionally:</p>
+  <ul>
+    <li><strong>Spreading misinformation</strong> by not verifying output.</li>
+    <li><strong>Plagiarizing</strong> by copying AI-generated text word-for-word.</li>
+    <li><strong>Manipulating or deceiving</strong> others (e.g., fake reviews, impersonation).</li>
+    <li><strong>Exposing private or sensitive information</strong> by entering it into an AI tool.</li>
+    <li><strong>Automating harm</strong>, using AI for spam, harassment, or exploitative content.</li>
+  </ul>
+ 
+  <h3>3 Principles for Ethical AI Use</h3>
+ 
+  <h4>1. Be Transparent</h4>
+  <p>If you're using AI in work or communication, <strong>say so</strong>. Trying to pass off AI-generated content as your own can erode trust.</p>
+  <div class="callout">This summary was assisted by AI and reviewed by a human.  •  I used ChatGPT to help brainstorm these ideas.</div>
+  <p>Transparency builds credibility.</p>
+ 
+  <h4>2. Protect Privacy</h4>
+  <p>Don't enter:</p>
+  <ul>
+    <li>Personal details (yours or others').</li>
+    <li>Confidential client info.</li>
+    <li>Private health or financial records.</li>
+  </ul>
+  <p>Even if the tool says it won't "remember," always treat AI tools as <strong>public-facing by default</strong>.</p>
+ 
+  <h4>3. Use for Empowerment, Not Exploitation</h4>
+  <p>Use AI to save time, enhance creativity, increase accessibility, and make complex topics easier to understand.</p>
+  <div class="callout">Would I be comfortable with this use being made public?  •  Is this helping someone, or just helping me get away with something?</div>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Evaluate a recent use of AI.</h4>
+    <p>Ask yourself: Was I transparent? Did I protect private information? Did this use align with fairness and respect? If you feel uneasy — good. That's your ethical compass doing its job.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Transparency builds trust.</li>
+      <li>Privacy protection isn't optional.</li>
+      <li>Use AI to empower, not to exploit.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-6"><span class="label">← Previous</span>Bias</a>
+    <a href="#topic-8"><span class="label">Next →</span>Privacy</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 8 ================= -->
+<article class="topic" id="topic-8" aria-labelledby="topic-8-title">
+  <div class="topic-eyebrow">Topic 08</div>
+  <h2 id="topic-8-title">Are You Oversharing With AI? Here's How to Stay Safe</h2>
+  <p>Generative AI tools like ChatGPT are incredibly useful, but they're not your diary. Understanding <strong>what AI can see</strong> (and what it retains) helps you stay safe and responsible.</p>
+ 
+  <h3>First, Let's Clear Up a Common Myth</h3>
+  <div class="callout">"It's fine. I'm just chatting with a robot." → Reality: You may be feeding that robot sensitive data.</div>
+  <p>While platforms like ChatGPT don't store personal data permanently by default, <strong>conversations are often used to improve the model</strong> unless you opt out or use private modes. So if you're entering:</p>
+  <ul>
+    <li>Names, emails, phone numbers.</li>
+    <li>Financial or health data.</li>
+    <li>Client information.</li>
+    <li>Company secrets or credentials.</li>
+  </ul>
+  <p><strong>…you may be exposing more than you realize.</strong></p>
+ 
+  <h3>3 Rules for AI Privacy Protection</h3>
+ 
+  <h4>1. Treat Every AI Chat Like It's Public</h4>
+  <div class="callout">If I wouldn't post this on a public forum, I shouldn't paste it into an AI tool.</div>
+  <p>Even in secure tools, assume a risk of exposure, accidental or otherwise.</p>
+ 
+  <h4>2. Don't Share Confidential Info</h4>
+  <p>Never enter passwords, API keys, sensitive business data, or internal emails. If you must reference sensitive topics (e.g., summarizing a report), <strong>anonymize the content</strong> or ask the AI to help you format text you'll fill in later.</p>
+ 
+  <h4>3. Use Secure AI Tools (or Private Modes)</h4>
+  <p>Some tools, like enterprise versions of ChatGPT or self-hosted LLMs, offer no logging, local processing, and privacy-by-design features. Also: check if the tool has a setting to opt out of training data sharing, and turn it on.</p>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Audit last week's AI use.</h4>
+    <p>Review how you've used AI in the past week. Did you enter anything sensitive? Could a conversation be reconstructed to reveal personal or client data? If yes, tighten your habits.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Treat every AI chat as public by default.</li>
+      <li>Never enter credentials, secrets, or private records.</li>
+      <li>Use private modes and opt out of training data sharing.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-7"><span class="label">← Previous</span>Ethical Use</a>
+    <a href="#topic-9"><span class="label">Next →</span>Real-World Practice</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 9 ================= -->
+<article class="topic" id="topic-9" aria-labelledby="topic-9-title">
+  <div class="topic-eyebrow">Topic 09</div>
+  <h2 id="topic-9-title">Real-World Practice - Prompt, Verify, Check, Protect</h2>
+  <p>You've built a toolkit of responsible AI habits: clear prompting, verification, bias awareness, ethical use, and privacy protection. Today, put it all into action.</p>
+ 
+  <h3>The Task: Simulate a Real AI Session</h3>
+  <p>Let's say you want to use AI to <strong>write a short explainer on a trending topic</strong>, for example:</p>
+  <div class="callout">How AI could impact the job market in the next 5 years.</div>
+  <p>You'll go through it step by step.</p>
+ 
+  <h4>Step 1: Craft a Strong Prompt</h4>
+  <div class="callout">Act as a labor market economist. Write a 300-word summary on how AI may impact white-collar and blue-collar jobs over the next 5 years. Use bullet points and include one counterargument.</div>
+ 
+  <h4>Step 2: Verify the Output</h4>
+  <div class="callout">What sources support this?  •  When was this data last updated?</div>
+  <p>Then manually cross-check any claims with trusted sources like news outlets, journals, or economic forecasts.</p>
+ 
+  <h4>Step 3: Check for Bias</h4>
+  <div class="callout">Is this analysis U.S.-centric?  •  What perspectives are missing?  •  How might this look different in developing countries?</div>
+  <p>Revise the prompt if needed to include global or inclusive viewpoints.</p>
+ 
+  <h4>Step 4: Protect Privacy</h4>
+  <p>Don't input your company's internal hiring data, specific salaries, employee info, or strategy docs. If you're referencing confidential material, <strong>generalize it</strong> or insert placeholders.</p>
+ 
+  <h4>Step 5: Reflect</h4>
+  <ul>
+    <li>Was the response accurate and balanced?</li>
+    <li>Did the AI mislead or make something up?</li>
+    <li>Would you be comfortable sharing this publicly, ethically, and securely?</li>
+  </ul>
+  <p>This reflection is the key to building real AI literacy.</p>
+ 
+  <div class="action-box">
+    <div class="label">Your Action Step</div>
+    <h4>Run it on your own topic.</h4>
+    <p>Pick a different topic, one from your own work or interests, and run the same 5-step process. The more you practice, the more second-nature it becomes.</p>
+  </div>
+ 
+  <div class="recap">
+    <div class="label">Quick Recap</div>
+    <ul>
+      <li>Prompt with intention.</li>
+      <li>Verify with rigor.</li>
+      <li>Check bias with curiosity.</li>
+      <li>Protect privacy with discipline.</li>
+      <li>Reflect to turn practice into mastery.</li>
+    </ul>
+  </div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-8"><span class="label">← Previous</span>Privacy</a>
+    <a href="#topic-10"><span class="label">Next →</span>Moving Forward</a>
+  </nav>
+</article>
+ 
+<!-- ================= TOPIC 10 ================= -->
+<article class="topic" id="topic-10" aria-labelledby="topic-10-title">
+  <div class="topic-eyebrow">Topic 10</div>
+  <h2 id="topic-10-title">Moving Forward - Your AI Journey Doesn't End Here</h2>
+  <p>You now have the foundations to <strong>use AI effectively and responsibly</strong>. That puts you ahead of most people already using these tools. But AI is evolving fast. The next step is learning how to <strong>grow with it</strong>, without falling behind, getting careless, or losing trust in your tools.</p>
+ 
+  <h3>What You've Learned So Far</h3>
+  <ul>
+    <li>What AI is (and isn't).</li>
+    <li>How it actually works (next-word prediction).</li>
+    <li>Prompting fundamentals and advanced techniques.</li>
+    <li>How to verify and challenge AI outputs.</li>
+    <li>How to spot bias and ask better questions.</li>
+    <li>Ethical use and privacy protection.</li>
+    <li>Real-world decision-making.</li>
+  </ul>
+  <p>That's a huge win, and you're just getting started.</p>
+ 
+  <h3>How to Keep Your AI Skills Sharp</h3>
+ 
+  <h4>1. Keep Practicing (Deliberately)</h4>
+  <p>Use AI regularly, but don't just "ask stuff." Run <strong>structured experiments</strong>:</p>
+  <ul>
+    <li>Change one part of a prompt and observe the result.</li>
+    <li>Try solving real tasks in your work or life.</li>
+    <li>Keep a <strong>Prompt Journal</strong> with what works and what doesn't.</li>
+  </ul>
+  <p>Repetition with reflection = mastery.</p>
+ 
+  <h4>2. Stay Current (But Stay Skeptical)</h4>
+  <p>Follow AI newsletters, ethics-focused blogs, and developer notes from OpenAI, Anthropic, and other labs. But don't just chase hype, stay grounded in what's <strong>useful and safe</strong>.</p>
+ 
+  <h4>3. Lead by Example</h4>
+  <ul>
+    <li>Share what you've learned with your team, classmates, or community.</li>
+    <li>Encourage transparency and data protection.</li>
+    <li>Help others avoid misinformation and misuse.</li>
+  </ul>
+  <p><strong>You don't need to be a developer to be a responsible AI leader.</strong></p>
+ 
+  <div class="action-box">
+    <div class="label">Your Final Action Step</div>
+    <h4>Find your North Star.</h4>
+    <p>Think back to <strong>why</strong> you started this guide. What's <strong>one meaningful way</strong> you'll use AI more effectively and ethically from now on? Write it down. You're no longer just "using AI." You're using it <em>with intention</em>. And that's rare.</p>
+  </div>
+ 
+  <div class="callout">Thanks for taking the journey. Now go build something worth building.</div>
+ 
+  <nav class="topic-nav" aria-label="Topic navigation">
+    <a href="#topic-9"><span class="label">← Previous</span>Real-World Practice</a>
+    <a href="#topics" class="back-index"><span class="label">Start Over</span>All Topics</a>
+  </nav>
+</article>
+ 
+<!-- ABOUT -->
+<section class="intro" id="about-ying" aria-labelledby="about-title">
+  <h2 id="about-title">About Ying Zhou</h2>
+  <p><strong>Ying Zhou</strong> is the Executive Director of the Tech Incubator at Queens College (CUNY), where she leads an ecosystem that helps students, faculty, and community members transform ideas into ventures. She works at the intersection of education, entrepreneurship, and technology — connecting people, sparking collaboration, and co-creating solutions that help others live better, healthier lives.</p>
+  <p>Her mission is simple: accelerate learning, growth, and contribution to make the world a better place.</p>
+  <h3>Let's connect:</h3>
+  <p>LinkedIn: <a href="https://www.linkedin.com/in/yingznyc/" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/yingznyc/</a></p>
+</section>
+ 
+</main>
+ 
+<footer class="site-footer">
+  <div class="footer-inner">
+    <h3>Responsible AI Starter Blueprint</h3>
+    <p>A free, long-term reference for builders, students, and lifelong learners. Share it widely — knowledge should empower, not intimidate.</p>
+    <div class="meta">
+      <p>Created by <strong>Ying Zhou</strong> · Executive Director, Tech Incubator at Queens College (CUNY)</p>
+      <p>© Tech Incubator at Queens College. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+ 
+<button class="to-top" id="toTop" aria-label="Back to top">↑</button>
+ 
+<script>
+  // Back to top button
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) toTop.classList.add('visible');
+    else toTop.classList.remove('visible');
+  });
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+ 
+</body>
+</html>
